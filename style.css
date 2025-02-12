@@ -1,0 +1,178 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0f2b; /* LAPD ciemnoniebieski */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.tablet {
+    width: 1200px; /* Szerszy wygląd */
+    height: 700px; /* Mniejsza wysokość */
+    background-color: #162a54; /* LAPD granatowy */
+    border: 15px solid #0d1b3d;
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+header {
+    width: 100%;
+    text-align: center;
+    background: #1b2a5c;
+    padding: 15px;
+    border-radius: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.nav-btn {
+    background: #FFD700;
+    color: black;
+    font-weight: bold;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 16px;
+}
+
+.nav-btn:hover {
+    background: #FFC107;
+}
+
+main {
+    width: 100%;
+    flex: 1;
+    background: #1e3a7a;
+    padding: 20px;
+    border-radius: 15px;
+    overflow-y: auto;
+}
+
+#dashboard {
+    display: block;
+    text-align: center;
+    font-size: 24px;
+    font-weight: bold;
+    padding-top: 100px;
+}
+
+#verdict, #scanner {
+    display: none; /* Ukrywamy na start */
+}
+
+.category {
+    margin-bottom: 12px;
+    border: 2px solid #FFD700;
+    border-radius: 8px;
+    background: #1e3a7a;
+    padding: 8px;
+}
+
+.toggle-btn {
+    width: 100%;
+    padding: 12px;
+    background: #FFD700;
+    color: black;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+    transition: background 0.3s;
+    font-size: 14px;
+}
+
+.toggle-btn:hover {
+    background: #FFC107;
+}
+
+.content {
+    display: none;
+    padding: 12px;
+    background: #1e3a7a;
+    border-top: 2px solid #FFD700;
+    border-radius: 0 0 5px 5px;
+}
+
+#map-container {
+    position: relative;
+    width: 800px; /* Szersza mapa */
+    height: 500px;
+    background: url('map.png') no-repeat center center;
+    background-size: cover;
+    border: 3px solid #FFD700;
+    margin: 20px auto;
+    border-radius: 10px;
+}
+
+.officer-marker {
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    border: 2px solid white;
+}
+
+button {
+    background-color: #1e3a7a;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #1e3a7a;
+}
+.category {
+    margin-bottom: 10px;
+    border: 2px solid #FFD700;
+    border-radius: 5px;
+    background: #003366;
+    padding: 5px;
+}
+.toggle-btn {
+    width: 100%;
+    padding: 10px;
+    background: #FFD700;
+    color: black;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: left;
+    transition: background 0.3s;
+}
+.toggle-btn:hover {
+    background: #FFA500;
+}
+.content {
+    display: none;
+    padding: 10px;
+    background: #001F3F;
+    border-top: 2px solid #FFD700;
+    border-radius: 0 0 5px 5px;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablet Los Angeles Police Department</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function toggleContent(id) {
+            let content = document.getElementById(id);
+            content.style.display = content.style.display === "block" ? "none" : "block";
+        }
+        
+        function calculate() {
+            let checkboxes = document.querySelectorAll('.case:checked');
+            let totalWyrok = 0, totalGrzywna = 0, summaryText = "";
+            
+            checkboxes.forEach((checkbox) => {
+                let wyrok = parseInt(checkbox.getAttribute("data-wyrok"));
+                let grzywna = parseInt(checkbox.getAttribute("data-grzywna"));
+                totalWyrok += wyrok;
+                totalGrzywna += grzywna;
+                summaryText += `${checkbox.parentElement.textContent.trim()} - ${wyrok} miesięcy, ${grzywna} $`;
+            });
+            
+            document.getElementById("result").innerText = summaryText 
+                ? `${summaryText}\nŁączny wyrok: ${totalWyrok} miesięcy, łączna grzywna: ${totalGrzywna} $`
+                : "Brak wybranych przewinień.";
+        }
+    </script>
+</head>
+<body>
+    <div class="tablet">
+        <header>
+            <h1>Tablet Los Angeles Police Department</h1>
+        </header>
+        <nav>
+            <button class="nav-btn" onclick="showSection('dashboard')">🔍 Dashboard</button>
+            <button class="nav-btn" onclick="showSection('verdict')">⚖️ Wyrok</button>
+            <button class="nav-btn" onclick="showSection('scanner')">📡 Skaner</button>
+        </nav>
+        <main>
+            <section id="dashboard" class="active">
+                <h2>Panel Główny</h2>
+                <p>Witaj w systemie Los Angeles Police Department.</p>
+            </section>
+            <section id="verdict">
+                <h2>Wyrok</h2>
+                <div class="category">
+                    <button class="toggle-btn" onclick="toggleContent('cat1')">Wykroczenia drogowe</button>
+                    <div id="cat1" class="content">
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="5000"> Jazda pod wpływem alkoholu lub substancji odurzających</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="0" data-grzywna="5000"> Jazda bez prawa jazdy</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="0" data-grzywna="2000"> Przekroczenie prędkości w mieście</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="0" data-grzywna="4000"> Brawurowa jazda</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="3" data-grzywna="3000"> Stwarzanie zagrożenia w ruchu lądowym</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="1" data-grzywna="2000"> Niezatrzymanie pojazdu do kontroli</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="0" data-grzywna="1000"> Niewłaściwe parkowanie</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="2" data-grzywna="5000"> Potrącenie przechodnia</label><br>
+                    </div>
+                </div>
+                <div class="category">
+                    <button class="toggle-btn" onclick="toggleContent('cat2')">Przestępstwa lekkie</button>
+                    <div id="cat2" class="content">
+                        <label><input type="checkbox" class="case" data-wyrok="0" data-grzywna="2000"> Niszczenie mienia publicznego</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="1500"> Niewykonywanie poleceń funkcjonariusza</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="5" data-grzywna="3000"> Obraza funkcjonariusza</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="5" data-grzywna="1500"> Utrudnianie pracy służbom publicznym</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="0" data-grzywna="1500"> Fałszywe zgłoszenie</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="0" data-grzywna="1500"> Niszczenie cudzej własności</label><br>
+                    </div>
+                </div>
+                    <div class="category">
+                    <button class="toggle-btn" onclick="toggleContent('cat3')">Przestępstwa ciężkie</button>
+                    <div id="cat3" class="content">
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="4000"> Groźby przy użyciu broni</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="7500"> Ucieczka przed policją</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="15" data-grzywna="10000"> Porwanie</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="5000"> Pomoc w ucieczce</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="5000"> Współudział w przestępstwie</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="15" data-grzywna="5000"> Napad na sklep</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="15" data-grzywna="10000"> Napad na konwój</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="20" data-grzywna="15000"> Napad na skarbiec</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="5000"> Prowokacja policji</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="500"> Próba napadu/napaści</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="15" data-grzywna="5000"> Podszywanie się pod funkcjonariusza LAPD</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="0" data-grzywna="5000"> Nękanie obywatela/obywatelki</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="360" data-grzywna="360000"> Terroryzm</label><br>
+                    </div>
+                </div>
+                <div class="category">
+                    <button class="toggle-btn" onclick="toggleContent('cat4')">Przestępstwa związane z bronią i nielegalnymi substancjami</button>
+                    <div id="cat4" class="content">
+                        <label><input type="checkbox" class="case" data-wyrok="5" data-grzywna="5000"> Posiadanie narkotyków miękkich (marihuana powyżej 5g)</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="10000"> Posiadanie narkotyków twardych (metamfetamina/kokaina)</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="7500"> Handel narkotykami miękkimi (marihuana)</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="15" data-grzywna="10000"> Handel narkotykami twardymi (metamfetamina/kokaina)</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="20" data-grzywna="30000"> Posiadanie broni bez zezwolenia</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="20" data-grzywna="30000"> Posiadanie rejestrowanej broni krótkiej</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="40" data-grzywna="100000"> Posiadanie nielegalnej broni klasy drugiej</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="15" data-grzywna="15000"> Handel bronią</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="10" data-grzywna="10000"> Bezpodstawne użycie broni</label><br>
+                    </div>
+                </div>
+                <div class="category">
+                    <button class="toggle-btn" onclick="toggleContent('cat5')">Przestępstwa związane z użyciem siły/uszczerbkiem na zdrowiu</button>
+                    <div id="cat5" class="content">
+                        <label><input type="checkbox" class="case" data-wyrok="15" data-grzywna="15000"> Usiłowanie zabójstwa</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="25" data-grzywna="20000"> Usiłowanie zabójstwa funkcjonariusza LAPD</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="15" data-grzywna="10000"> Napaść na funkcjonariusza LAPD</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="5" data-grzywna="5000"> Groźby karalne</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="5" data-grzywna="2000"> Nieumyślne spowodowanie uszczerbku na zdrowiu</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="5" data-grzywna="2000"> Naruszenie nietykalności cielesnej</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="5" data-grzywna="1000"> Udział w bójce</label><br>
+                        <label><input type="checkbox" class="case" data-wyrok="360" data-grzywna="360000"> Morderstwo</label><br>
+                    </div>
+                </div>
+                <div class="summary">
+                    <h3>Podsumowanie</h3>
+                    <button onclick="calculate()">Pokaż</button>
+                    <p id="result"></p>
+                </div>
+</section>
+            <section id="scanner">
+                <h2>Skaner</h2>
+                <p>Analiza sygnałów i danych.</p>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
